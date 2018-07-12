@@ -24,7 +24,7 @@ from pylab import *
 import os.path
 import qutip as qt
 
-from fonctions_generales import *
+from general_functions import *
 from parameters import args
 from preparation import *
 from cavities_interaction import *

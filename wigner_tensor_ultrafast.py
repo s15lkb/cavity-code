@@ -145,7 +145,7 @@ def plot_wigner(W, xa, ya, xb, yb):
 #xb = linspace(-1.5,1.5,Nxb)
 #ya = linspace(-1.5,1.5,Nya)
 #yb = linspace(-1.5,1.5,Nyb)
-
+#
 
 #xa = array([sqrt(3/8)])
 #ya = array([0])

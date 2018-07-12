@@ -12,23 +12,13 @@ and with a number of real atoms going from 0 to Nrealmax
 """
 
 import matplotlib.pyplot as plt
-from matplotlib import cm
-from matplotlib.colors import BoundaryNorm
-from matplotlib.ticker import LinearLocator, FormatStrFormatter, MaxNLocator
-import matplotlib.mlab as mlab
 import numpy as np
-from numpy.polynomial import laguerre
-import scipy
-from scipy.optimize import curve_fit
-from pylab import *
-import os.path
 import qutip as qt
 
-from general_functions import *
-from parameters import args
-from preparation import *
-from cavities_interaction import *
-from detection import *
+
+from preparation import PreparedStates, ProbaPreparedStates, ProbaNumberRealAtoms
+from cavities_interaction import DensityMatrixAfterInteraction
+from detection import Partial_trace, ProbasPossibleDetections, SelectDetection
 
 debug = False
 
@@ -109,7 +99,7 @@ def Quantum_map(Nreal, Detection, args, fig_qm=True):
 	
 	# Plot
 	if fig_qm:
-		fig = qt.hinton(quantum_map) 
+		qt.hinton(quantum_map) 
 		plt.suptitle("State of the cavities")
 		plt.show()
 		
@@ -146,7 +136,7 @@ def RhoFinal(Nrealmax, Detection, args, fig_rhofinal=True, fig_qm=False):
 
 	# Plot
 	if fig_rhofinal:
-		fig = qt.hinton(Rho_final) 
+		qt.hinton(Rho_final) 
 		plt.suptitle("State of the cavities for detection "+str(Detection))
 		if args['NH1'] == 3 and args['NH2'] == 3:
 			plt.text(-28.8,1.02,np.float(int(round(Rho_final[0,0].real*1000))/1000))

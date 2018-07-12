@@ -13,10 +13,9 @@ and several functions usefull for the computation of quantum_maps, done in the f
 
 """
 
-from general_functions import DistributionPoisson
-from matplotlib import *
+
+#from matplotlib import *
 import matplotlib.pyplot as plt
-import numpy as np
 import qutip as qt
 import sys
 
@@ -121,7 +120,7 @@ def KrausOperator(Ideal_detection,args):
 	Tensor_components += [qt.qeye(args['NH1']),qt.qeye(args['NH2'])]  # State for both cavities
 		
 	if False:
-		fig = qt.hinton(qt.tensor(Tensor_components)) 
+		qt.hinton(qt.tensor(Tensor_components)) 
 		plt.suptitle("Kraus operator for the detection " + str(Ideal_detection))
 		plt.show()
 	

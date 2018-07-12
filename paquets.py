@@ -5,10 +5,10 @@ Created on Wed Jun  6 12:21:01 2018
 @author: valentin.metillon
 """
 
-from scipy.special import binom, factorial
-from numpy import*
-import matplotlib.pylab as plt
-from matplotlib import cm
+from scipy.special import factorial
+from numpy import exp, linspace, array, meshgrid
+
+
 
 def poisson(mu,n):
     return(exp(-mu)*mu**n/factorial(n))
@@ -24,6 +24,8 @@ n= array(range(1,10))
 mus,eps, ns = meshgrid(mu,ep,n)   # [ i_ep, i_mu, i_n]
 
 george = P_n_at_1d(eps,mus,ns)
+
+#import matplotlib.pylab as plt
 #fig, axes = plt.subplots(2,2)
 
 #nrm = plt.colors.Normalize(0, 1)

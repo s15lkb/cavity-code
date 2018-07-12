@@ -9,17 +9,11 @@ as functions of time.
 
 """
 
-from numpy import *
+#from numpy import *
 import qutip as qt
 import matplotlib.pylab as plt
-from tof import positions, tof
-from contrast import contrast
 from qutip.solver import Options
-from bloch_dressed_states import X_dressed, Y_dressed, Z_dressed
-from time import time
-from qutip.metrics import fidelity
-from hamiltonians import hamiltonians_atoms, hamiltonians_n_atoms_C1, hamiltonians_n_atoms_C2, killer, f1, f2, build_hamiltonians, local_operator
-from state_analysis import coherence_noon
+from hamiltonians import killer, f1, f2, build_hamiltonians, local_operator
 from initial_states import initial_state
 import sys
 
@@ -32,26 +26,20 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
 		Numb1 = qt.tensor(qt.qeye(2),qt.qeye(2),qt.num(args['NH1']),qt.qeye(args['NH2']))
 		Numb2 = qt.tensor(qt.qeye(2),qt.qeye(2),qt.qeye(args['NH1']),qt.num(args['NH2']))
 
-		a1 = qt.tensor(qt.destroy(args['NH1']),qt.qeye(args['NH2']))
-		a2 = qt.tensor(qt.qeye(args['NH1']),qt.destroy(args['NH2']))
-		N1 = a1.dag()*a1
-		N2 = a2.dag()*a2
+#		a1 = qt.tensor(qt.destroy(args['NH1']),qt.qeye(args['NH2']))
+#		a2 = qt.tensor(qt.qeye(args['NH1']),qt.destroy(args['NH2']))
 
 
-		Lm1 = sqrt(args['kappa_1']*(1+args['n_th1']))*a1    #Loss of a photon in C1
-		Lm2 = sqrt(args['kappa_2']*(1+args['n_th2']))*a2    #Loss of a photon in C2
 
-		Lp1 = sqrt(args['kappa_1']*(args['n_th1']))*a1.dag()    #Absorption of a photon in C1
-		Lp2 = sqrt(args['kappa_2']*(args['n_th2']))*a2.dag()    #Absorption of a photon in C2
-
-		# Initial states    
-		psi_g = qt.basis(2,1)
-		psi_e = qt.basis(2,0)
-		psi_at_0 = 1/sqrt(2)*(qt.basis(2,0)+qt.basis(2,1))     #Atom in e+g
+#		Lm1 = sqrt(args['kappa_1']*(1+args['n_th1']))*a1    #Loss of a photon in C1
+#		Lm2 = sqrt(args['kappa_2']*(1+args['n_th2']))*a2    #Loss of a photon in C2
+#
+#		Lp1 = sqrt(args['kappa_1']*(args['n_th1']))*a1.dag()    #Absorption of a photon in C1
+#		Lp2 = sqrt(args['kappa_2']*(args['n_th2']))*a2.dag()    #Absorption of a photon in C2
 
 
-		# Global state
-		psie = qt.tensor(psi_e, psi_e, qt.basis(args['NH1'],0),qt.basis(args['NH2'],0)) 
+
+
 	
 		# Initial state
 		N_atoms = len(atomic_states)
@@ -89,7 +77,7 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
 				plt.suptitle("Etats des atomes et des cavités en fonction du temps")
 		
 		# Plot the density matrix after interaction : state of the cavities + the atoms, since we have not yet taken the partial trace
-			fig = qt.hinton(qt.ket2dm(rho_after_interaction)) 
+			qt.hinton(qt.ket2dm(rho_after_interaction)) 
 			plt.suptitle("State of the cavities + atoms")
 			plt.show()
 		

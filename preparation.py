@@ -9,7 +9,7 @@ preparation errors : eta_prep_g and eta_prep_e
 
 
 """
-from general_functions import *
+from general_functions import Poisson
 
 
 def ProbaNumberRealAtoms(Nreal, args):

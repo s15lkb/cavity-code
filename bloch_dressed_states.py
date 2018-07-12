@@ -5,10 +5,10 @@ Created on Mon Jan 29 15:04:12 2018
 @author: valentin.metillon
 """
 
-from numpy import*
+
 import qutip as qt
-import matplotlib.pylab as plt
-from qutip.solver import Options
+from numpy import zeros
+
 
 #NH = 3 
 
@@ -57,6 +57,8 @@ def Z_dressed(NH,n):
     Z_ds.dims = [[2,NH],[2,NH]]
     return(Z_ds)
     
+    
+
 #X_ds = X_dressed(NH)
 #Y_ds = X_dressed(NH)
 #Z_ds = X_dressed(NH)

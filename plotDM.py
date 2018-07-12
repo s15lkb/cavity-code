@@ -12,7 +12,6 @@ Finally, it shows the fidelity as a function of the varying parameter.
 
 """
 import matplotlib.pyplot as plt
-from matplotlib import rc
 import qutip as qt
 import numpy as np
 import sys

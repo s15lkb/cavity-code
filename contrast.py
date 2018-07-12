@@ -6,7 +6,7 @@ Created on Thu Feb  1 17:25:56 2018
 """
 
 import qutip as qt
-from numpy import*
+from numpy import sqrt
 
 def contrast(rho):
     #Ramsey contrast for the final state of an atom that was prepared in e+g

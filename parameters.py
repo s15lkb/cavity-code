@@ -12,7 +12,7 @@ N_cav = 2
 
 """ PREPARATION """
 
-from numpy import *
+from numpy import pi, linspace
 
 # Specify the state of the prepared atoms : 'g' or 'e'
 prepared_state = 'e'

@@ -5,7 +5,6 @@ Created on Tue Mar 14 12:01:17 2017
 @author: valentin.metillon
 """
 
-from numpy import array
 
 
 positions = {'BAC': 0, 'R1' : 56.8, 'C1': 101.9, 'R2':147, 'C2': 192.1,'R3': 237.2, 'D1': 278, 'D2': 308}

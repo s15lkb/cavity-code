@@ -13,7 +13,7 @@ and several functions usefull for the computation of quantum_maps, done in the f
 
 """
 
-from fonctions_generales import DistributionPoisson
+from general_functions import DistributionPoisson
 from matplotlib import *
 import matplotlib.pyplot as plt
 import numpy as np

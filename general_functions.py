@@ -1,7 +1,9 @@
 """ 
-FONCTIONS GENERALES 
+GENERAL FUNCTIONS
 
-Auteur : Gautier Depambour
+Author : Gautier Depambour
+
+Some useful general functions.
 
 """
 import numpy as np

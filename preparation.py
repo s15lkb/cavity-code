@@ -9,7 +9,7 @@ preparation errors : eta_prep_g and eta_prep_e
 
 
 """
-from fonctions_generales import *
+from general_functions import *
 
 
 def ProbaNumberRealAtoms(Nreal, args):

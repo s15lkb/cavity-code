@@ -13,7 +13,7 @@ as functions of time.
 import qutip as qt
 import matplotlib.pylab as plt
 from qutip.solver import Options
-from hamiltonians import killer, f1, f2, build_hamiltonians, local_operator_cavity, local_operator_atom
+from hamiltonians import killer, build_hamiltonians, local_operator_cavity, local_operator_atom
 from initial_states import initial_state
 import sys
 
@@ -23,8 +23,7 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
     #if args['N_cav'] == 0:
     
     if args['N_cav'] > 0:
-        Numb1 = qt.tensor(qt.qeye(2),qt.qeye(2),qt.num(args['NH1']),qt.qeye(args['NH2']))
-        Numb2 = qt.tensor(qt.qeye(2),qt.qeye(2),qt.qeye(args['NH1']),qt.num(args['NH2']))
+
 
 #        a1 = qt.tensor(qt.destroy(args['NH1']),qt.qeye(args['NH2']))
 #        a2 = qt.tensor(qt.qeye(args['NH1']),qt.destroy(args['NH2']))
@@ -59,7 +58,7 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
         ee = []
         for i in range(N_atoms):
             ee += [local_operator_atom(qt.basis(2,0)*qt.basis(2,0).dag(),i,NHs,N_atoms) ]    # |e><e| For atom i
-        e_ops = [Numb1,Numb2] + ee
+        e_ops = Numb + ee
 
         # Evolution
         opts = Options(store_states=True, store_final_state=True)
@@ -72,9 +71,10 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
         # Plot the evolution of the number of photons in the cavities and the states of the atoms during interaction
             plt.plot(args['t_real'],res.expect[0],label='N1, '+str(N_atoms)+' atoms')
             plt.plot(args['t_real'],res.expect[1],label='N2, '+str(N_atoms)+' atoms')
+            plt.plot(args['t_real'],res.expect[2],label='N3, '+str(N_atoms)+' atoms')
             #plt.plot(args['t_real'],H_jc[],label='N2, '+str(N_atoms)+' atoms')
             for i in range(len(ee)):
-                plt.plot(args['t_real'],res.expect[2+i],label='Pe '+str(i))
+                plt.plot(args['t_real'],res.expect[args['N_cav']+i],label='Pe '+str(i))
             plt.xlabel("t_real")
             plt.title("Pour "+str(N_atoms)+" atomes")
             plt.legend()
@@ -104,7 +104,7 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
 #
 from parameters import args
 #from numpy import exp
-atomic_states = 'e'
+atomic_states = 'ee'
 a=DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True)
 #
 #

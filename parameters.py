@@ -8,7 +8,7 @@ You will find in this file all usefull parameters for the simulation.
 """
 
 """ NUMBER OF CAVITIES """
-N_cav = 3
+N_cav = 2
 
 """ PREPARATION """
 

@@ -23,22 +23,6 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
     #if args['N_cav'] == 0:
     
     if args['N_cav'] > 0:
-
-
-#        a1 = qt.tensor(qt.destroy(args['NH1']),qt.qeye(args['NH2']))
-#        a2 = qt.tensor(qt.qeye(args['NH1']),qt.destroy(args['NH2']))
-
-
-
-#        Lm1 = sqrt(args['kappa_1']*(1+args['n_th1']))*a1    #Loss of a photon in C1
-#        Lm2 = sqrt(args['kappa_2']*(1+args['n_th2']))*a2    #Loss of a photon in C2
-#
-#        Lp1 = sqrt(args['kappa_1']*(args['n_th1']))*a1.dag()    #Absorption of a photon in C1
-#        Lp2 = sqrt(args['kappa_2']*(args['n_th2']))*a2.dag()    #Absorption of a photon in C2
-
-
-
-
     
         # Initial state
         N_atoms = len(atomic_states)
@@ -94,18 +78,18 @@ def DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True):
             print ("Le nombre moyen de photons dans la cavite 2 est "+str(res.expect[1][-1]))
             print ("Le nombre moyen d'atomes encore excites est "+str(res.expect[2][-1]))
     
-        return qt.ket2dm(rho_after_interaction),H_jc
+        return qt.ket2dm(rho_after_interaction)
     
     else:
         print ("Please specify a correct number of cavities")
         sys.exit()
     
-    
+ 
 #
-from parameters import args
-#from numpy import exp
-atomic_states = 'ee'
-a=DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True)
+#from parameters import args
+##from numpy import exp
+#atomic_states = 'ee'
+#a=DensityMatrixAfterInteraction(atomic_states, args, figs_interaction = True)
 #
 #
 #

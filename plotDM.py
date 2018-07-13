@@ -131,7 +131,7 @@ for i in range(N_plots):
 for i in reversed(range(0,N_plots)):
 	qt.hinton(Density_matrices[i])
 	plt.suptitle("Density matrix with "+str(varying_param)+" = "+str(Range[i * step])+", for detection : "+str(Detection)+", without contrast")
-	if args['NH1'] == 3 and args['NH2'] == 3:
+	if args['NHs'][0] == 3 and args['NHs'][1] == 3:
 		plt.text(-28.9,1.02,np.float(int(round(Density_matrices[i][0,0].real*100))/100))
 		plt.text(-26.1,0.885,np.float(int(round(Density_matrices[i][1,1].real*100))/100))
 		plt.text(-23.3,0.75,np.float(int(round(Density_matrices[i][2,2].real*100))/100))
